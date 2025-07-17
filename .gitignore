@@ -1,0 +1,15 @@
+# Python cache
+backend/**/__pycache__/
+backend/**/*.pyc
+
+# Entornos virtuales
+backend/venv/
+backend/.env
+
+# Archivos de sistema
+.DS_Store
+
+#Node.js/Vite
+frontend/node_modules/
+frontend/dist/
+frontend/.env
