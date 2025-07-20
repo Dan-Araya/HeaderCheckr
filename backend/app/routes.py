@@ -7,14 +7,13 @@ bp = Blueprint('main', __name__)
 @bp.route('/analyze', methods=['POST'])
 def analyze():
     data = request.get_json()
-    url = data.get('url')
 
-    if not url:
+    if not data or 'url' not in data:
         return jsonify({"error": "Missing URL"}), 400
 
     try:
-        headers = get_headers(url)
+        headers = get_headers(data['url'])
         evaluation = evaluate_headers(headers)  # ✅ Evaluamos seguridad
-        return jsonify({"headers": headers, **evaluation}), 200  # ✅ Combinamos headers y análisis
+        return jsonify({"headers": headers, "evaluation" : evaluation}), 200  # ✅ Combinamos headers y análisis
     except Exception as e:
         return jsonify({"error": str(e)}), 500
