@@ -1,19 +1,17 @@
 from flask import Blueprint, request, jsonify
-from .analyzer.fetcher import get_headers
-from .analyzer.evaluator import evaluate_headers  # ✅ Agregado
+from .controllers.web_analysis_controller import perform_web_analysis
 
 bp = Blueprint('main', __name__)
 
 @bp.route('/analyze', methods=['POST'])
-def analyze():
-    data = request.get_json()
-
+def analyze_route():
+    data = request.json
     if not data or 'url' not in data:
         return jsonify({"error": "Missing URL"}), 400
+    url = data['url']
 
     try:
-        headers = get_headers(data['url'])
-        evaluation = evaluate_headers(headers)  # ✅ Evaluamos seguridad
-        return jsonify({"headers": headers, "evaluation" : evaluation}), 200  # ✅ Combinamos headers y análisis
+        results = perform_web_analysis(url)
+        return jsonify(results), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
