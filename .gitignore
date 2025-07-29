@@ -22,3 +22,6 @@ frontend/.env
 *.swp
 .vscode/
 .idea/
+
+#Internal Docs
+.doc.odt
