@@ -23,7 +23,7 @@ def analyze_route():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-bp.route('/extended-analyze', methods=['POST'])
+@bp.route('/extended-analyze', methods=['POST'])
 def extended_analyze_route():
     """
     A. Takes the original URL entered by the user (https://example.com/contact)
@@ -97,6 +97,8 @@ def extended_analyze_route():
 
                 try:
                     result, _ = perform_web_analysis(absolute_url)
+                    print(
+                        f"✅ Subruta analizada: {absolute_url} → {result['evaluation']['score']} ({result['evaluation']['level']})")
                     related_results.append({
                         "url": absolute_url,
                         **result

@@ -1,0 +1,22 @@
+def extended_analyze():
+    # A. Toma la URL original
+    url = data["url"]  # ejemplo: https://munivicuna.cl/login
+
+    # B. Analiza esa ruta con perform_web_analysis(url)
+    main_result = {...}
+
+    # C. Calcula el dominio base (https://munivicuna.cl)
+    # D. Scrapea los <a href="..."> desde la home
+    # E. Extrae subrutas internas (ej: /, /concejo, /cosoc)
+    # F. Para cada subruta:
+        # → Normaliza (urljoin)
+        # → Valida (is_url_safe)
+        # → Analiza (perform	_web_analysis)
+        # → Espera con time.sleep(random)
+
+    # G. Devuelve:
+    return {
+        "main": main_result,          # Análisis de la ruta original
+        "related": [subruta1, subruta2, ...]  # Análisis de otras páginas
+    }
+

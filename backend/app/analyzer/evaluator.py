@@ -1,4 +1,4 @@
-def evaluate_headers(headers: dict) -> bool:
+def evaluate_headers(headers: dict, url: str = None) -> dict:
     SECURITY_HEADERS = [
         "content-security-policy",
         "strict-transport-security",
