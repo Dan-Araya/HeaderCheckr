@@ -1,27 +1,35 @@
-# Python cache
+# ─── PYTHON CACHE ─────────────────────────────────────────────
+__pycache__/
 **/__pycache__/
-**/*.pyc
-**/*.pyo
 *.py[cod]
+**/*.py[cod]
+*.pyo
+*.pyd
 
-# Virtual env
-.env
+# ─── VIRTUAL ENVIRONMENTS ─────────────────────────────────────
 .venv/
 venv/
-backend/.env
+backend/.venv/
 backend/venv/
 
-# 🌐 Node.js + Vite
-frontend/node_modules/
-frontend/dist/
+# ─── DOTENV FILES (CREDENTIALS) ───────────────────────────────
+.env
+.env.*
+backend/.env
 frontend/.env
 
-#  System files
-.DS_Store
-*.log
-*.swp
-.vscode/
-.idea/
+# ─── NODE / VITE (FRONTEND) ───────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.next/
 
-#Internal Docs
+# ─── SYSTEM / EDITOR FILES ────────────────────────────────────
+.DS_Store
+*.swp
+*.log
+.idea/
+.vscode/
+
+# ─── INTERNAL DOCS / PERSONAL ─────────────────────────────────
 doc.odt
